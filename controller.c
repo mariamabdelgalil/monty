@@ -54,6 +54,10 @@ void execute_current_cmd()
         }
         op_idx++;
     }
-
+if (map_op_func[op_idx].opcode == NULL)
+    {
+        fprintf(stderr, "L%ld: unknown instruction %s\n", monty_controller.current_context.line_number, monty_controller.current_context.operation);
+        exit_program();
+    }
 }
 
