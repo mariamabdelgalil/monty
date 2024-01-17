@@ -83,8 +83,10 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		return (ptr);
 	new_ptr = malloc(new_size);
 	if (new_ptr == NULL)
-		return (NULL);
-
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit_program();
+	}
 	old_size = old_size < new_size ? old_size : new_size;
 	while (old_size--)
 		new_ptr[old_size] = ((char *)ptr)[old_size];

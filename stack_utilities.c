@@ -14,7 +14,10 @@ stack_t *push_stack(stack_t **head, const int n)
 
     new_node = malloc(sizeof(stack_t));
     if (new_node == NULL)
-        return (NULL);
+    {
+	    fprintf(stderr, "Error: malloc failed\n");
+            exit_program();
+    }
 
     new_node->n = n;
     new_node->prev = NULL;
