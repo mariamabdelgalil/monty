@@ -4,7 +4,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
+#include <fcntl.h>
+#include <string.h>
+#define BUFFER_SIZE 2048
+#define STACK_FLAG 0
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -38,7 +41,8 @@ typedef struct instruction_s
 /**
  * struct MontyContext
  * @current_arg: argument to the command
- * @monty_file: pointer to monty file
+ * @operation: opcode command
+ * @monty_file_descriptor: descriptor to monty file
  * @content: current line content
  * @line_size: current line size
  * @readline: amount of read by getline
@@ -49,7 +53,8 @@ typedef struct instruction_s
 typedef struct MontyContext
 {
     char *current_arg;
-    FILE *monty_file;
+    char *operation;
+    int monty_file_descriptor;
     char *line_content;
     size_t line_size;
     ssize_t readline;
@@ -72,5 +77,14 @@ typedef struct MontyController
 } MontyController;
 
 extern MontyController monty_controller;
+/*utilities.c*/
+ssize_t readline(char **lineptr, size_t *n, int stream);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+void init_controller(int monty_file_descriptor);
+void exit_program();
+/*stack_utilities.c*/
+stack_t *push_stack(stack_t **head, const int n);
+size_t print_stack(const stack_t *h);
+void free_stack(stack_t *stack);
 #endif
 

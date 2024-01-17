@@ -1,4 +1,5 @@
 #include "monty.h"
+MontyController monty_controller;
 /**
 * main - monty code interpreter
 * @argc: number of arguments
