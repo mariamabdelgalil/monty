@@ -86,5 +86,13 @@ void exit_program();
 stack_t *push_stack(stack_t **head, const int n);
 size_t print_stack(const stack_t *h);
 void free_stack(stack_t *stack);
+
+/*monty_functions.c*/
+void monty_push(stack_t **stack, unsigned int line_number);
+void monty_pall(stack_t **stack, unsigned int line_number);
+/*controller.c*/
+void execute_controller_flow();
+void parse();
+void execute_current_cmd();
 #endif
 
