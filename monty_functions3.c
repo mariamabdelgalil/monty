@@ -101,3 +101,26 @@ void monty_rotl(stack_t **stack, unsigned int line_number)
 	monty_controller.stack_tail = tmp;
 	(void) line_number;
 }
+
+/**
+ * monty_rotr - rotr rotates the stack to the bottom.
+ * @stack: pointer to stack
+ * @line_number: line_number
+ * Return: no return
+*/
+void monty_rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp, *new_tail;
+	stack_t *head = *stack;
+
+	if (monty_controller.stack_len <= 1)
+		return;
+	tmp = (monty_controller.stack_tail);
+	new_tail = tmp->prev;
+	new_tail->next = NULL;
+	tmp->prev = NULL;
+	tmp->next = head;
+	*stack = tmp;
+	monty_controller.stack_tail = new_tail;
+	(void) line_number;
+}
