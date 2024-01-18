@@ -43,7 +43,7 @@ void execute_current_cmd(void)
 
 	instruction_t map_op_func[] = {
 					{"push", monty_push}, {"pall", monty_pall},
-					{"pint", monty_pint},
+					{"pint", monty_pint}, {"pop", monty_pop},
 					{NULL, NULL}
 					};
 	unsigned int op_idx = 0;

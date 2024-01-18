@@ -66,4 +66,16 @@ void free_stack(stack_t *stack)
 		stack = temp;
 	}
 }
+/**
+* pop_stack - frees a stack
+* @stack: pointer to top of the stack
+*/
+void pop_stack(stack_t **stack)
+{
+	stack_t *temp = *stack;
 
+	*stack = temp->next;
+	if (temp->next)
+		temp->next->prev = NULL;
+	free(temp);
+}

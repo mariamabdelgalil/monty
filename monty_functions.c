@@ -63,3 +63,19 @@ void monty_pint(stack_t **stack, unsigned int line_number)
 	}
 	printf("%d\n", (*stack)->n);
 }
+
+/**
+ * monty_pop - pop the stack top
+ * @stack: pointer to stack
+ * @line_number: line_number
+ * Return: no return
+*/
+void monty_pop(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		exit_program();
+	}
+	pop_stack(stack);
+}
