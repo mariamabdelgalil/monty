@@ -48,7 +48,7 @@ void execute_current_cmd(void)
 					{"nop", monty_nop}, {"sub", monty_sub},
 					{"div", monty_div}, {"mul", monty_mul},
 					{"mod", monty_mod}, {"pchar", monty_pchar},
-					{"pstr", monty_pstr},
+					{"pstr", monty_pstr}, {"rotl", monty_rotl},
 					{NULL, NULL}
 					};
 	unsigned int op_idx = 0;

@@ -113,6 +113,7 @@ void init_controller(int monty_file_descriptor)
 								monty_file_descriptor;
 	monty_controller.current_context.readline = 1;
 	monty_controller.current_context.stack_or_queue = STACK_FLAG;
+	monty_controller.stack_tail = NULL;
 }
 
 /**

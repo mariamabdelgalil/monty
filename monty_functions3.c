@@ -77,3 +77,27 @@ void monty_pstr(stack_t **stack, unsigned int line_number)
 	}
 	printf("\n");
 }
+
+
+/**
+ * monty_rotl - rotl rotates the stack to the top.
+ * @stack: pointer to stack
+ * @line_number: line_number
+ * Return: no return
+*/
+void monty_rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp = *stack, *new_head;
+	stack_t *tail = monty_controller.stack_tail;
+
+	if (monty_controller.stack_len <= 1)
+		return;
+	new_head = (*stack)->next;
+	new_head->prev = NULL;
+	tail->next = tmp;
+	tmp->next = NULL;
+	tmp->prev = tail;
+	*stack = new_head;
+	monty_controller.stack_tail = tmp;
+	(void) line_number;
+}

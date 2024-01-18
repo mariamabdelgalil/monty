@@ -69,6 +69,7 @@ typedef struct MontyContext
  * @current_context: data of program
  * @monty_stack: stack of monty program
  * @stack_len: current length of the stack
+ * @stack_tail: tail of stack list
  * Description: controls execution of program/data
  */
 typedef struct MontyController
@@ -76,6 +77,7 @@ typedef struct MontyController
 	MontyContext current_context;
 	stack_t *monty_stack;
 	size_t stack_len;
+	stack_t *stack_tail;
 } MontyController;
 
 extern MontyController monty_controller;
@@ -103,6 +105,7 @@ void monty_mul(stack_t **stack, unsigned int line_number);
 void monty_mod(stack_t **stack, unsigned int line_number);
 void monty_pchar(stack_t **stack, unsigned int line_number);
 void monty_pstr(stack_t **stack, unsigned int line_number);
+void monty_rotl(stack_t **stack, unsigned int line_number);
 /*controller.c*/
 void execute_controller_flow(void);
 void parse(void);

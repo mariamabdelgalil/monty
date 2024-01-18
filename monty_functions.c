@@ -35,6 +35,8 @@ void monty_push(stack_t **stack, unsigned int line_number)
 	n = atoi(monty_controller.current_context.current_arg);
 	push_stack(stack, n);
 	monty_controller.stack_len++;
+	if (monty_controller.stack_len == 1)
+		monty_controller.stack_tail = *stack;
 }
 
 /**
