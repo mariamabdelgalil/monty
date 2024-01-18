@@ -34,6 +34,7 @@ void monty_push(stack_t **stack, unsigned int line_number)
 	}
 	n = atoi(monty_controller.current_context.current_arg);
 	push_stack(stack, n);
+	monty_controller.stack_len++;
 }
 
 /**
@@ -78,4 +79,28 @@ void monty_pop(stack_t **stack, unsigned int line_number)
 		exit_program();
 	}
 	pop_stack(stack);
+	monty_controller.stack_len--;
 }
+
+/**
+ * monty_swap - swap the 2 top stack elements
+ * @stack: pointer to stack
+ * @line_number: line_number
+ * Return: no return
+*/
+void monty_swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+	int tmp_n;
+
+	if (monty_controller.stack_len < 2)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		exit_program();
+	}
+	tmp = *stack;
+	tmp_n = tmp->n;
+	tmp->n = tmp->next->n;
+	tmp->next->n = tmp_n;
+}
+           

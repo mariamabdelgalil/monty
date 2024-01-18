@@ -103,6 +103,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 void init_controller(int monty_file_descriptor)
 {
 	monty_controller.monty_stack = NULL;
+	monty_controller.stack_len = 0;
 	monty_controller.current_context.current_arg = NULL;
 	monty_controller.current_context.operation = NULL;
 	monty_controller.current_context.line_content = NULL;

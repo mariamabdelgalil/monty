@@ -68,12 +68,14 @@ typedef struct MontyContext
  * struct MontyController - controller for program flow
  * @current_context: data of program
  * @monty_stack: stack of monty program
+ * @stack_len: current length of the stack
  * Description: controls execution of program/data
  */
 typedef struct MontyController
 {
 	MontyContext current_context;
 	stack_t *monty_stack;
+	size_t stack_len;
 } MontyController;
 
 extern MontyController monty_controller;
@@ -92,6 +94,7 @@ void monty_push(stack_t **stack, unsigned int line_number);
 void monty_pall(stack_t **stack, unsigned int line_number);
 void monty_pint(stack_t **stack, unsigned int line_number);
 void monty_pop(stack_t **stack, unsigned int line_number);
+void monty_swap(stack_t **stack, unsigned int line_number);
 /*controller.c*/
 void execute_controller_flow(void);
 void parse(void);
