@@ -45,7 +45,7 @@ void execute_current_cmd(void)
 					{"push", monty_push}, {"pall", monty_pall},
 					{"pint", monty_pint}, {"pop", monty_pop},
 					{"swap", monty_swap}, {"add", monty_add},
-					{"nop", monty_nop},
+					{"nop", monty_nop}, {"sub", monty_sub},
 					{NULL, NULL}
 					};
 	unsigned int op_idx = 0;
