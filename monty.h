@@ -19,9 +19,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -34,16 +34,16 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
- * struct MontyContext
+ * struct MontyContext - current context
  * @current_arg: argument to the command
  * @operation: opcode command
  * @monty_file_descriptor: descriptor to monty file
- * @content: current line content
+ * @line_content: current line content
  * @line_size: current line size
  * @readline: amount of read by getline
  * @line_number: number of current line inside file
@@ -52,28 +52,28 @@ typedef struct instruction_s
  */
 typedef struct MontyContext
 {
-    char *current_arg;
-    char *operation;
-    int monty_file_descriptor;
-    char *line_content;
-    size_t line_size;
-    ssize_t readline;
-    size_t line_number;
-    int stack_or_queue;
+	char *current_arg;
+	char *operation;
+	int monty_file_descriptor;
+	char *line_content;
+	size_t line_size;
+	ssize_t readline;
+	size_t line_number;
+	int stack_or_queue;
 
 } MontyContext;
 
 
 /**
- * struct MontyController
+ * struct MontyController - controller for program flow
  * @current_context: data of program
  * @monty_stack: stack of monty program
  * Description: controls execution of program/data
  */
 typedef struct MontyController
 {
-    MontyContext current_context;
-    stack_t *monty_stack;
+	MontyContext current_context;
+	stack_t *monty_stack;
 } MontyController;
 
 extern MontyController monty_controller;
@@ -81,7 +81,7 @@ extern MontyController monty_controller;
 ssize_t readline(char **lineptr, size_t *n, int stream);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void init_controller(int monty_file_descriptor);
-void exit_program();
+void exit_program(void);
 /*stack_utilities.c*/
 stack_t *push_stack(stack_t **head, const int n);
 size_t print_stack(const stack_t *h);
@@ -91,8 +91,8 @@ void free_stack(stack_t *stack);
 void monty_push(stack_t **stack, unsigned int line_number);
 void monty_pall(stack_t **stack, unsigned int line_number);
 /*controller.c*/
-void execute_controller_flow();
-void parse();
-void execute_current_cmd();
+void execute_controller_flow(void);
+void parse(void);
+void execute_current_cmd(void);
 #endif
 

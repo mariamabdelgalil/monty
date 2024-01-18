@@ -102,26 +102,27 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
  */
 void init_controller(int monty_file_descriptor)
 {
-    monty_controller.monty_stack = NULL;
-    monty_controller.current_context.current_arg = NULL;
-    monty_controller.current_context.operation = NULL;
-    monty_controller.current_context.line_content = NULL;
-    monty_controller.current_context.line_number = 0;
-    monty_controller.current_context.line_size = 0;
-    monty_controller.current_context.monty_file_descriptor = monty_file_descriptor;
-    monty_controller.current_context.readline = 1;
-    monty_controller.current_context.stack_or_queue = STACK_FLAG;
+	monty_controller.monty_stack = NULL;
+	monty_controller.current_context.current_arg = NULL;
+	monty_controller.current_context.operation = NULL;
+	monty_controller.current_context.line_content = NULL;
+	monty_controller.current_context.line_number = 0;
+	monty_controller.current_context.line_size = 0;
+	monty_controller.current_context.monty_file_descriptor =
+								monty_file_descriptor;
+	monty_controller.current_context.readline = 1;
+	monty_controller.current_context.stack_or_queue = STACK_FLAG;
 }
 
 /**
  * exit_program - do necessary work before closing program
  * Return: Void
  */
-void exit_program()
+void exit_program(void)
 {
-    close(monty_controller.current_context.monty_file_descriptor);
-    free(monty_controller.current_context.line_content);
-    free_stack(monty_controller.monty_stack);
-    exit(EXIT_FAILURE);
+	close(monty_controller.current_context.monty_file_descriptor);
+	free(monty_controller.current_context.line_content);
+	free_stack(monty_controller.monty_stack);
+	exit(EXIT_FAILURE);
 }
 
