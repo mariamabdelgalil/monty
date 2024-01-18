@@ -44,7 +44,7 @@ void monty_pchar(stack_t **stack, unsigned int line_number)
 
 	if (monty_controller.stack_len < 1)
 	{
-		fprintf(stderr, "L%d: can't pchar, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 		exit_program();
 	}
 	tmp = *stack;
