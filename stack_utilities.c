@@ -29,7 +29,7 @@ stack_t *push_stack(stack_t **head, const int n)
 }
 
 /**
- * addNodeAfter: add node after given_node
+ * addNodeAfter - Add node after given_node
  * @node: A pointer to the node that you will add after.
  * @n: The integer for the new node to contain.
  *

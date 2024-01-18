@@ -39,15 +39,12 @@ void monty_push(stack_t **stack, unsigned int line_number)
 		if (monty_controller.stack_len == 0)
 			monty_controller.stack_tail = *stack;
 	}
-	else 
+	else
 	{
 		if (monty_controller.stack_len != 0)
 			monty_controller.stack_tail = addNodeAfter(monty_controller.stack_tail, n);
 		else
-		{
-			 push_stack(stack, n);
-			 monty_controller.stack_tail = *stack;
-		}
+			 push_stack(stack, n),  monty_controller.stack_tail = *stack;
 	}
 	monty_controller.stack_len++;
 }
