@@ -28,7 +28,33 @@ stack_t *push_stack(stack_t **head, const int n)
 	return (new_node);
 }
 
+/**
+ * addNodeAfter: add node after given_node
+ * @node: A pointer to the node that you will add after.
+ * @n: The integer for the new node to contain.
+ *
+ * Return: If the function fails - NULL.
+ *         Otherwise - the address of the new node
+ */
+stack_t *addNodeAfter(stack_t *node, const int n)
+{
+	stack_t *new_node;
 
+	new_node = malloc(sizeof(stack_t));
+	if (new_node == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit_program();
+	}
+	new_node->n = n;
+	new_node->prev = node;
+	new_node->next = node->next;
+	if (node->next)
+		node->next->prev = new_node;
+	node->next = new_node;
+
+	return (new_node);
+}
 
 /**
  * print_stack - Prints all the elements of a stack.

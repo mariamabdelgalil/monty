@@ -7,7 +7,8 @@
 #include <fcntl.h>
 #include <string.h>
 #define BUFFER_SIZE 2048
-#define STACK_FLAG 0
+#define STACK_FORMAT 0
+#define QUEUE_FORMAT 1
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -88,6 +89,7 @@ void init_controller(int monty_file_descriptor);
 void exit_program(void);
 /*stack_utilities.c*/
 stack_t *push_stack(stack_t **head, const int n);
+stack_t *addNodeAfter(stack_t *node, const int n);
 size_t print_stack(const stack_t *h);
 void free_stack(stack_t *stack);
 void pop_stack(stack_t **head);
@@ -107,9 +109,10 @@ void monty_pchar(stack_t **stack, unsigned int line_number);
 void monty_pstr(stack_t **stack, unsigned int line_number);
 void monty_rotl(stack_t **stack, unsigned int line_number);
 void monty_rotr(stack_t **stack, unsigned int line_number);
+void monty_queue(stack_t **stack, unsigned int line_number);
+void monty_stack(stack_t **stack, unsigned int line_number);
 /*controller.c*/
 void execute_controller_flow(void);
 void parse(void);
 void execute_current_cmd(void);
 #endif
-
