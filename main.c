@@ -31,6 +31,8 @@ int main(int argc, char *argv[])
     }*/
 	close(monty_controller.current_context.monty_file_descriptor);
     free_stack(monty_controller.monty_stack);
+            free(monty_controller.current_context.line_content);
+
 
 return (0);
 }
