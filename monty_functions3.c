@@ -49,7 +49,7 @@ void monty_pchar(stack_t **stack, unsigned int line_number)
 	}
 	tmp = *stack;
 	tmp_n = tmp->n;
-	if (tmp_n < 0 || tmp_n > 255)
+	if (tmp_n < 0 || tmp_n > 127)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 		exit_program();
