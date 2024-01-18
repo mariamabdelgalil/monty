@@ -56,3 +56,24 @@ void monty_pchar(stack_t **stack, unsigned int line_number)
 	}
 	printf("%c\n", tmp_n);
 }
+
+/**
+ * monty_pstr - prints the str at the top of the stack
+ * @stack: pointer to stack
+ * @line_number: line_number
+ * Return: no return
+*/
+void monty_pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp = *stack;
+
+	(void) line_number;
+	while (tmp)
+	{
+		if (tmp->n <= 0 || tmp->n > 127)
+			break;
+		printf("%c", tmp->n);
+		tmp = tmp->next;
+	}
+	printf("\n");
+}
