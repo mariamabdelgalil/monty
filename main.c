@@ -29,6 +29,8 @@ int main(int argc, char *argv[])
         perror("Error closing file");
         return 1;
     }*/
+	close(monty_controller.current_context.monty_file_descriptor);
+    free_stack(monty_controller.monty_stack);
 
 return (0);
 }
