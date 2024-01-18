@@ -19,7 +19,8 @@ void execute_controller_flow()
             execute_current_cmd();
 /*        fprintf(stdout, "khaled %ld %s\n", monty_controller.current_context.line_number,
  *monty_controller.current_context.line_content);*/
-
+	free(monty_controller.current_context.line_content);
+        monty_controller.current_context.line_content = NULL;
     }
 }
 
