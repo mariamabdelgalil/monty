@@ -103,4 +103,3 @@ void monty_swap(stack_t **stack, unsigned int line_number)
 	tmp->n = tmp->next->n;
 	tmp->next->n = tmp_n;
 }
-           
