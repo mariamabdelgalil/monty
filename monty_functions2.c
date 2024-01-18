@@ -72,7 +72,7 @@ void monty_div(stack_t **stack, unsigned int line_number)
 
 	if (monty_controller.stack_len < 2)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
 		exit_program();
 	}
 	tmp = *stack;
