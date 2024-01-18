@@ -52,6 +52,8 @@ void execute_current_cmd(void)
 					};
 	unsigned int op_idx = 0;
 
+	if (monty_controller.current_context.operation[0] == '#')
+		return;
 	while (map_op_func[op_idx].opcode)
 	{
 		if (strcmp(monty_controller.current_context.operation,
