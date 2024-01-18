@@ -48,3 +48,18 @@ void monty_pall(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 }
 
+/**
+ * monty_pint - print the stack top
+ * @stack: pointer to stack
+ * @line_number: line_number
+ * Return: no return
+*/
+void monty_pint(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		exit_program();
+	}
+	printf("%d\n", (*stack)->n);
+}

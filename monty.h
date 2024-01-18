@@ -90,6 +90,7 @@ void free_stack(stack_t *stack);
 /*monty_functions.c*/
 void monty_push(stack_t **stack, unsigned int line_number);
 void monty_pall(stack_t **stack, unsigned int line_number);
+void monty_pint(stack_t **stack, unsigned int line_number);
 /*controller.c*/
 void execute_controller_flow(void);
 void parse(void);
